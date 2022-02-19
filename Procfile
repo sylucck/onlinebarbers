@@ -1,0 +1,1 @@
+web gunicorn onlinebarbers.wsgi:application --log-file -
