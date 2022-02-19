@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="row">
+<div class="col-sm-10">
+<h1>Website Database QuerySet</h1>
+<ul>
+    <li>Barbers QuerySet:  {{ all_barbers }} </li>
+    <li>Services QuerySet: {{ all_services }}</li>
+    <li>Hairstyles QuerySet: {{ all_hairstyles }}</li>
+    <li>Total number of barbers: {{ num_barbers }}</li>
+    <li>Total number of Services with 'Available' status: {{ num_avaliable }}</li>
+    <li>Total number of Services with 'Working' status: {{ num_working }}</li>
+    <li>Total number of Services with 'Unavailable' status: {{ num_unavailable }}</li>
+    <li>Services with 'Working' status QuerySet: {{ working }}</li>
+    <li>Services with 'Available' status QuerySet: {{ available }}
+    <li>Services with 'Unavailable' status QuerySet: {{ unavailable}}</li>
+</ul>
+
+<div class="container"> 
+    <h3><a href="{% url 'index' %}">About</a></h3>
+</div>
+</div>
+</div>
+
+  
+
+
+{% endblock %}

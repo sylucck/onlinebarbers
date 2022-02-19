@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<br>
+<strong>Check in:</strong> 
+        
+        
+        <ul>
+                
+                <h1>Haircut</h1> <li><strong>{{ serve.skill }}</li></strong>
+                <br>
+                <h1>Price</h1>  <li><strong>{{ serve.price}}</li></strong>
+                <br>
+                <h1> Barber's Status:</h1>
+        <li>
+       
+        <strong class="{% if serve.status == '1' %}text-success{% elif serve.status == '2' %}text-danger{% else %}text-warning{% endif %}"> {{ serve.get_status_display }}<br><hr>
+        {% if serve.status == '1' %} 
+        <button id="make-payment">Send request</button>
+        <p id="response"></p>
+        <h4 id="message"></h4>
+        <a id="back" href="{% url 'barbers'  %}"></a>
+        </div>
+
+        {% elif serve.status == 'w' %}
+        <a href="{% url 'barbers' %}">Back to Barbers page</a>
+        {% else %}
+        <a href="{% url 'barbers' %}">Back to Barbers page</a>
+        {% endif %}
+</li>
+</ul>
+        
+
+
+<script type="text/javascript">
+
+ document.getElementById("make-payment").addEventListener("click", function(){
+ document.getElementById("response").innerHTML = "Request sent";
+ document.getElementById("message").innerHTML = "Your request has been sent to this barber. Await his response";
+ document.getElementById("back").innerHTML = "Back to Barbers page";
+
+  })
+
+
+
+
+
+</script>
+
+{% endblock %}

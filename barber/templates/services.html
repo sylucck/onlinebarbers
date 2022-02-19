@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<br>
+{% for serve in services %}
+<div class="container">
+<div class="col-sm-10">
+    
+<ul>
+    <li><a href="{% url 'services-detail' serve.pk %}">{{serve.barber}}</a></li>
+    <li>{{serve.skill}}</li>
+    <li>Price: N{{serve.price}}</li>
+    
+</ul>
+</div>
+</div>
+
+
+
+{% endfor %}
+
+
+
+{% endblock %}

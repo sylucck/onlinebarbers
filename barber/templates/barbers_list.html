@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<hr>
+<br>
+  <h1>Barbers</h1>
+<div class="row">
+  <ul>
+    {% for post in barbers %}
+    
+      <li>
+        <a href="{% url 'barbers-detail' post.pk %}">{{post.last_name}}, {{ post.first_name }} 
+            </a>
+      </li>
+      <br>
+     
+    
+     
+    {% endfor %}
+    
+  </ul>
+</div>
+  
+
+
+
+{% endblock %}

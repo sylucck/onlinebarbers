@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<br>
+
+    <strong>Profile:</strong> 
+        <h1>Name: {{ barb.last_name }}, {{ barb.first_name }}</h1>
+    <ul><div class="col-lg-3">
+        <li><img class="thumbnail" src="{{ barb.imageURL }}" /></li>
+        </div>
+    </ul>
+    <hr>
+    <ul>
+        <li><h3>Bio:</h2><p>{{ barb.bio }}</p></li>
+        <li><h3> Age:</h3><p>{{ barb.age }}</p> </li>
+        <li><h3>Address:</h3><p>{{ barb.address}}</p></li>
+        <li><h3>Physical Stall:</h3><p>{{ barb.stall }}</p></li>
+        <li><h3>Phone number:</h3><p>{{ barb.phone }}</p></li>
+       
+    </ul>
+    
+    {% if barb.service_set.all %}
+    
+    <h2>Top Services:</h2>
+    {% for ser in barb.service_set.all %}
+    
+    <ul>
+        <a href="{% url 'services-detail' ser.pk %}">{{ ser.skill }}</a>
+
+    </ul>
+    
+    
+    
+    
+    
+    {% endfor %}
+    {% else %}
+    <p>No skill</p>
+    {% endif %}
+    
+
+
+
+
+
+
+
+
+{% endblock %}
