@@ -6,7 +6,7 @@ class Barber(models.Model):
     first_name = models.CharField(max_length=200)
     last_name = models.CharField(max_length=200)
     bio = models.TextField()
-    image = models.ImageField(default='default.jpg', upload_to='barber_image', null=True, blank=True)
+    image = models.ImageField(default='default_g5kghd.jpg', upload_to='barber_image', null=True, blank=True)
     address = models.CharField(max_length=300, null=True)
     date_of_birth = models.DateField(null=True, blank=True)
     stall = models.BooleanField(null=True, blank=True)
