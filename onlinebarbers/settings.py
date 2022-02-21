@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'barber',
     'movie',
     'django_summernote',
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
