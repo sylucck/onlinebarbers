@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 import django_heroku
 import dj_database_url
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,8 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-1rladlcs$lx%78-hn*0%q5a-73ndphs(h#!)_mv)1xr+i#k1=j'
+SECRET_KEY ='django-insecure-1rladlcs$lx%78-hn*0%q5a-73ndphs(h#!)_mv)1xr+i#k1=j'
 
+env = environ.Env()
+environ.Env.read_env()
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -132,9 +135,16 @@ MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media')
 
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME':env('CLOUD_NAME'),
+    'API_KEY': env('API_KEY'),
+    'API_SECRET':env('API_SECRET'),
+}
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 django_heroku.settings(locals())
